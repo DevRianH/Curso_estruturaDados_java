@@ -10,16 +10,19 @@ import com.rian.estrutura.dados.vetor.Vetor;
  *
  * @author rhezequias
  */
-public class Aula03 {
+public class Aula04 {
 
     public static void main(String[] args) {
 
-        Vetor vetor = new Vetor(5);
+        Vetor vetor = new Vetor(10);
 
-        vetor.adiciona("Elemento 1");
-        vetor.adiciona("Elemento 2");
-        vetor.adiciona("Elemento 3");
+        vetor.adiciona("Adiciona 01");
+        vetor.adiciona("Adiciona 02");
+        vetor.adiciona("Adiciona 03");
 
+        System.out.println(vetor.tamanho());
+
+        System.out.println(vetor);
     }
 
 }

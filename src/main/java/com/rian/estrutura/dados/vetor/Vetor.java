@@ -4,6 +4,8 @@
  */
 package com.rian.estrutura.dados.vetor;
 
+import java.util.Arrays;
+
 /**
  *
  * @author rianh
@@ -26,15 +28,50 @@ public class Vetor {
             }
         }
      */
-    public void adiciona(String elemento) throws Exception {
+    public boolean adiciona(String elemento) {
 
         if (this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = elemento;
             this.tamanho++;
-        } else {
-            throw new Exception("Vetor já está cheio, não é possivel adicionar mais elementos");
+            return true;
+        }
+        return false;
+    }
+
+    public int tamanho() {
+        return this.tamanho;
+    }
+
+    public String busca(int posicao) {
+
+        if (!(posicao >= 0 && posicao < tamanho)) {
+            throw new IllegalArgumentException("Posição inválida");
+        }
+        
+        return this.elementos[posicao];
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder s = new StringBuilder();
+
+        s.append("[");
+
+        for (int i = 0; i < this.tamanho - 1; i++) {
+            s.append(this.elementos[i]);
+            s.append(" ,");
+
         }
 
+        if (this.tamanho > 0) {
+            s.append(this.elementos[this.tamanho - 1]);
+
+        }
+
+        s.append("]");
+
+        return s.toString();
     }
 
 }
