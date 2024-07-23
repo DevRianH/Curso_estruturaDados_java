@@ -57,6 +57,9 @@ public class Contato {
     @Override
     public int hashCode() {
         int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.nome);
+        hash = 67 * hash + Objects.hashCode(this.telefone);
+        hash = 67 * hash + Objects.hashCode(this.email);
         return hash;
     }
 
@@ -80,7 +83,5 @@ public class Contato {
         }
         return Objects.equals(this.email, other.email);
     }
-
-    
 
 }
