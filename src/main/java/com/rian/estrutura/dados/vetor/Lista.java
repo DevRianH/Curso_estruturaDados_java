@@ -119,6 +119,10 @@ public class Lista<T> {
         return s.toString();
     }
 
+    public T mostraElemento(T elemento) {
+        return elemento;
+    }
+
     public int busca(T elemento) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
@@ -128,4 +132,21 @@ public class Lista<T> {
         return -1;
     }
 
+    public boolean contem(T elemento) {
+
+        for (int i = 0; i < this.tamanho; i++) {
+            if (this.elementos[i].equals(elemento)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public T[] getElementos() {
+        return elementos;
+    }
+
+    
+    
 }
