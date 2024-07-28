@@ -134,6 +134,12 @@ public class Lista<T> {
 
     public boolean contem(T elemento) {
 
+        return busca(elemento) > -1;
+    }
+
+    /* ex 01 que resolvi 
+    public boolean contem(T elemento) {
+
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
                 return true;
@@ -142,11 +148,85 @@ public class Lista<T> {
 
         return false;
     }
-
+     */
     public T[] getElementos() {
         return elementos;
     }
 
-    
-    
+    public T ultimoIndice() {
+        T ultimo = this.elementos[this.tamanho - 1];
+
+        return ultimo;
+    }
+
+    public int ultimoIndice(T elemento) {
+
+        for (int i = this.tamanho - 1; i >= 0; i--) {
+            if (this.elementos[i].equals(elemento)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public void remove(T elemento) {
+        int pos = this.busca(elemento);
+        if (pos > -1) {
+            this.remove(pos);
+        }
+
+    }
+
+//    método feito por mim para remover por elemento
+    /*public void removeElemento(T elemento) {
+        
+        for (int i = 0; i < this.tamanho; i++) {
+
+            if (this.elementos[i].equals(elemento)) {
+
+                for (int j = i; j < this.tamanho - 1; j++) {
+
+                    this.elementos[j] = this.elementos[j + 1];
+
+                }
+                this.tamanho--;
+            }
+        }
+
+    }*/
+    public T obtem(int posicao) {
+        if (!(posicao >= 0 && posicao < tamanho)) {
+            throw new IllegalArgumentException("Posição inválida");
+        }
+
+        return this.elementos[posicao];
+
+    }
+
+    public void limpar() {
+
+        //opção 1
+//        this.elementos = (T[]) new Object[this.elementos.length];
+        //opção 2
+//        this.tamanho = 0;
+        //opção 3
+        for (int i = 0; i < this.tamanho; i++) {
+            this.elementos[i] = null;
+        }
+        this.tamanho = 0;
+
+    }
+
+//    método criado por mim de acordo com o exercicio 
+    /*    public void limpar() {
+
+        for (int i = 0; i < this.tamanho; i++) {
+
+            this.elementos[i] = null;
+
+        }
+    this.tamanho = 0;
+    }
+     */
 }
