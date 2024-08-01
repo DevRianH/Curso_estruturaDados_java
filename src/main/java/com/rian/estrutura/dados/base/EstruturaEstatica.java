@@ -14,11 +14,12 @@ public class EstruturaEstatica<T> {
     private int tamanho;
 
     public EstruturaEstatica(int capacidade) {
-        this.elementos = elementos;
-        this.tamanho = tamanho;
+        this.elementos = (T[]) new Object[capacidade];
+        this.tamanho = 0;
     }
 
     public EstruturaEstatica() {
+        this(10);
     }
 
     protected boolean adiciona(T elemento) {
