@@ -88,4 +88,17 @@ public class EstruturaEstatica<T> {
         return s.toString();
     }
 
+    public boolean estaVazio() {
+        return this.tamanho == 0;
+    }
+
+    public T topo() {
+
+        if (estaVazio()) {
+            return null;
+        }
+
+        return this.elementos[tamanho - 1];
+    }
+
 }
