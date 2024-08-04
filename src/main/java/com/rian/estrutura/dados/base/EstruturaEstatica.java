@@ -10,8 +10,8 @@ package com.rian.estrutura.dados.base;
  */
 public class EstruturaEstatica<T> {
 
-    private T[] elementos;
-    private int tamanho;
+    protected T[] elementos;
+    protected int tamanho;
 
     public EstruturaEstatica(int capacidade) {
         this.elementos = (T[]) new Object[capacidade];
@@ -83,7 +83,7 @@ public class EstruturaEstatica<T> {
 
         }
 
-        s.append("]");
+        s.append("]\n");
 
         return s.toString();
     }
@@ -92,13 +92,5 @@ public class EstruturaEstatica<T> {
         return this.tamanho == 0;
     }
 
-    public T topo() {
-
-        if (estaVazio()) {
-            return null;
-        }
-
-        return this.elementos[tamanho - 1];
-    }
-
+   
 }
